@@ -1,0 +1,19 @@
+block title
+    title Ghibli Movie Chooser!
+
+block content
+    div Click To Add To Favorites
+    each movie in allMovies
+        div 
+        button #[a(href=`/addMovie?movie=${movie.title}`) #{movie.title}]
+
+    div Current Favorites:
+    each movie in favoritedMovies
+        div= movie
+    script(src='/js/MoviePickerController.js')
+
+//- script.
+//-     'use strict';
+    
+
+

@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/michaeljmcdonald/CSC365-Final-Project/issues"
   },
-  "homepage": "https://github.com/michaeljmcdonald/CSC365-Final-Project#readme"
+  "homepage": "https://github.com/michaeljmcdonald/CSC365-Final-Project#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
 }
