@@ -3,8 +3,9 @@ const Http = new XMLHttpRequest();
 const url='localhost:3000/';
 
 let addMovie = function(movie) {
-    Http.open("GET", url + "addMovie");
+    Http.open("GET", "/addMovie?movie=" + movie);
     Http.send();
+    location.reload();
 }
 
 document

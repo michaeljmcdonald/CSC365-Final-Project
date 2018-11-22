@@ -5,7 +5,7 @@ block content
     div Click To Add To Favorites
     each movie in allMovies
         div 
-        button #[a(href=`/addMovie?movie=${movie.title}`) #{movie.title}]
+        button(onclick='addMovie("' + movie.title + '")' ) #{movie.title}
 
     div Current Favorites:
     each movie in favoritedMovies

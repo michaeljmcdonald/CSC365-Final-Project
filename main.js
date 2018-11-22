@@ -47,11 +47,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/addMovie', function(req, res) {
+    console.log(req.query.movie)
     movieModule.addToFavorites(req.query.movie);
-    res.render('MoviePicker', {
-        allMovies: movieModule.getAllMovies(),
-        favoritedMovies: movieModule.getAllFavoritedMovies()	
-    })
 });
 
 const server = app.listen(3000, function() {

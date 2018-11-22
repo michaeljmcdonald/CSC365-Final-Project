@@ -18,9 +18,11 @@ obj.getAllMovies = function() {
 }
 
 obj.storeAllMovies = function(movies) {
-	movies.forEach(function(movie){
-		allMovies.push(movie);
-	})
+	if (allMovies.length == 0){
+		movies.forEach(function(movie){
+			allMovies.push(movie);
+		});
+	}
 };
 
 obj.addToFavorites = function(movie) {
