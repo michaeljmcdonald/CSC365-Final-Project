@@ -1,12 +1,69 @@
-#mTitle {
-    text-emphasis: bold;
-    text-emphasis-color: blue;
-}
-
 .gallery{
     text-emphasis: bold;
 }
 
 html{
-    background-color: black;
+    background-color: black !important;
+}
+
+.button{
+    background-color: rgb(223, 190, 106) !important;
+    color: white !important;
+    padding: .5mm 1mm !important;
+    margin: 3mm;
+    width: 15%;
+    display: flex !important; 
+    justify-content: center !important;
+    transition: all 0.5s;
+    border: 2px solid rgb(133, 100, 57) !important;
+    
+}
+
+#sglinks{
+    margin-top: 15mm;
+    margin-left: 19.5mm;
+    font-weight: bold !important;
+    color: rgb(223, 190, 106);
+}
+
+h1.title{
+    color: rgb(207, 173, 86) !important;
+    font-size: 30pt !important;
+}
+
+#mb{
+    background-color: rgb(97, 129, 214);
+    color: white;
+    margin: 1mm;
+    border: 2px solid rgb(211, 211, 255) !important;
+}
+
+#curfav{
+    margin-top: 10mm; 
+    margin-bottom: 2mm;   
+    color: rgb(223, 190, 106);
+    font-size: 16pt;
+}
+
+div{
+    color:rgb(153, 172, 224);
+    font-size: 14pt;
+}
+
+.sgd{
+    text-indent: 50px;
+    font-size: 16pt;
+}
+
+.gallery{
+    font-size: 16pt;
+    margin-top: 20mm;
+    margin-bottom: 5mm;
+}
+
+#fav{
+    margin-top: 2mm; 
+    margin-bottom: 2mm;   
+    color: rgb(223, 190, 106);
+    font-size: 12pt;
 }
