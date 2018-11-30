@@ -8,7 +8,17 @@ let addMovie = function(movie) {
     location.reload();
 }
 
+let removeMovie = function(movie) {
+    Http.open("DELETE", "/removeMovie?movie=" + movie);
+    Http.send();
+    location.reload();
+}
+
 document
     .addEventListener('addMovie', function(evt){
         console.log("hello");
+    });
+
+    document.addEventListener('removeMovie', function(evt){
+        console.log('delete');
     });

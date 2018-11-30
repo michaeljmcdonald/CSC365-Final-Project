@@ -29,4 +29,13 @@ obj.addToFavorites = function(movie) {
 	favoritesList.push(movie);
 }
 
+obj.removeFromFavorites = function(movie){
+	for(let i = 0; i < favoritesList.length; i++){
+		if(favoritesList[i] == movie){
+			favoritesList.pop[i];
+		}
+	}
+	favoritesList.filter(undefined);
+}
+
 module.exports = obj;

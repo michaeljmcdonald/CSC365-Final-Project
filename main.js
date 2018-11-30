@@ -51,6 +51,11 @@ app.get('/addMovie', function(req, res) {
     movieModule.addToFavorites(req.query.movie);
 });
 
+app.get('/removeMovie', function(req, res) {
+    console.log(req.query.movie)
+    movieModule.removeFromFavorites(req.query.movie);
+});
+
 
 app.get('/', function(req, res) {
 	res.render('moviepicker');

@@ -7,6 +7,11 @@ block main-content
         div 
         button(id='mb', onclick='addMovie("' + movie.title + '")' ) #{movie.title}
 
+    div(id="remove") Click To Remove From Favorites:
+    each movie in allMovies
+        div 
+        button(id='rmb', onclick='removeMovie("' + movie.title + '")' ) #{movie.title}
+
     div(id='curfav') Current Favorites:
     each movie in favoritedMovies
         div= movie
