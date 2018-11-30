@@ -27,8 +27,8 @@ let favTweet = function() {
     for (let i = 0; i < movies.length; i++){
         listOfMovies.append[movies[i] + ", "]
     }
-    body = {}
-    body[status] = "Ny favs are: " + listOfMovies;
+    //body = {}
+    //body[status] = "My favs are: " + listOfMovies;
     // Http.open("POST", "https://api.twitter.com/1.1/statuses/update.json");
     // Http.send(body);    
 }
