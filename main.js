@@ -51,6 +51,11 @@ app.get('/Movie', function(req, res) {
     movieModule.addToFavorites(req.query.movie);
 });
 
+app.get('/AllCurrentFavorites', function(req, res) {
+    res.send(movieModule.getAllFavoritedMovies())
+    
+});
+
 app.delete('/Movie', function(req, res) {
     console.log(req.query.movie)
     movieModule.removeFromFavorites(req.query.movie);
@@ -72,3 +77,4 @@ app.get('/studioghibli', function(req, res) {
 const server = app.listen(3000, function() {
 	console.log(`Server started on port ${server.address().port}`);
 });
+
