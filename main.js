@@ -46,12 +46,12 @@ app.get('/', function(req, res) {
     
 });
 
-app.get('/addMovie', function(req, res) {
+app.get('/Movie', function(req, res) {
     console.log(req.query.movie)
     movieModule.addToFavorites(req.query.movie);
 });
 
-app.get('/removeMovie', function(req, res) {
+app.delete('/Movie', function(req, res) {
     console.log(req.query.movie)
     movieModule.removeFromFavorites(req.query.movie);
 });
