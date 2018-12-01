@@ -21,7 +21,7 @@ html{
 
 #sglinks{
     margin-top: 15mm;
-    margin-left: 19.5mm;
+    margin-left: 17.5mm;
     font-weight: bold !important;
     color: rgb(223, 190, 106);
 }
@@ -66,4 +66,69 @@ div{
     margin-bottom: 2mm;   
     color: rgb(223, 190, 106);
     font-size: 12pt;
+}
+
+#tweetb{
+    background-color: rgb(46, 86, 197) !important;
+    color: rgb(243, 243, 242) !important;
+    padding: .5mm 1mm !important;
+    margin: 3mm;
+    width: 15%;
+    display: flex !important; 
+    justify-content: center !important;
+    transition: all 0.5s;
+    border: 2px solid rgb(255, 255, 255) !important;    
+    font-size: 13pt !important;
+}
+
+#lbutton{
+    background-color: rgb(223, 190, 106) !important;
+    color: white !important;
+    display: flex;
+    margin:0 auto;
+    padding: .5mm 1mm !important;
+    width: 15%;
+    align-items:center;
+    justify-content: center !important;
+    transition: all 0.5s;
+    border: 2px solid rgb(133, 100, 57) !important;   
+    font-size: 13pt !important;
+}
+
+#remove{
+    margin-top: 6mm; 
+    margin-bottom: 2mm;   
+    color: rgb(223, 190, 106);
+    font-size: 12pt;
+}
+
+#rmb{
+    background-color: rgb(221, 87, 69);
+    color: white;
+    margin: 1mm;
+    border: 2px solid rgb(197, 124, 55) !important;
+}
+
+#ldiv{
+    display: flex;
+    margin:0 auto; 
+    align-items:center;
+    justify-content: center !important;
+    margin-bottom: 5mm !important;
+    font-size: 20pt !important;
+}
+
+#tlog{
+    display: flex !important;
+    margin:0 auto !important; 
+    align-items:center !important;
+    justify-content: center !important;
+    font-size: 70pt !important;
+    margin-top: 50mm !important;
+    margin-bottom: 5mm !important;
+}
+
+#navt{
+    font-size: 30pt !important;
+    text-shadow: 1.5px 1.5px #000000;
 }
