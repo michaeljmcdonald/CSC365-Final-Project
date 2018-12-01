@@ -27,7 +27,7 @@ let favTweet = function() {
         let query = "My favs are: " + listOfMovies;
         Http.open("POST", "/tweet?movies=" + query);
         //Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        Http.send();
+        //Http.send();
         console.log(listOfMovies);  
     
     }
