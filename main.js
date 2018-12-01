@@ -23,10 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 let twit = new Twit({
-    consumer_key: 'P0NZew8V0UP2MZfysbaC4d338',
-    consumer_secret: 'le5BhI5MIQMDfMrNC48sI0MD48bKkYE51vOvjQxAJr6ey9zPzB',
-    access_token: '1067567744277721089-z24FIuQPewVW6nvCCHxHXicDXWzZqu',
-    access_token_secret: '1PoimCJHwmtXT9gi9sAR3vfdZfQsEoVDOiRcM2dKQKazv'     
+         
 });
 
 let twitterKeys = {
