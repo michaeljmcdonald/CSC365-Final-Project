@@ -75,7 +75,7 @@ app.use(
 app.get("/auth/twitter", passport.authenticate(twitterStrat));
 
 app.get("/auth/twitter/callback", passport.authenticate(twitterStrat, {
-    successRedirect: "/main",
+    successRedirect: "/studioghibli",
     failureRedirect: "/"
 }));
 
