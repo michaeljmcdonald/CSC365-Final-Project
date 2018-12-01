@@ -16,7 +16,7 @@ app.use(
 	})
 ); // for parsing application/x-www-form-urlencoded
 
-app.get('/', function(req, res) {   
+app.get('/moviePicker', function(req, res) {   
     let allMovies = null;
     request(
             {
@@ -62,12 +62,16 @@ app.delete('/Movie', function(req, res) {
 });
 
 
-app.get('/', function(req, res) {
-	res.render('moviepicker');
+app.get('/moviePicker', function(req, res) {
+	res.render('moviePicker');
 });
 
 app.get('/gallery', function(req, res) {
 	res.render('gallery');
+});
+
+app.get('/', function(req, res) {
+	res.render('login');
 });
 
 app.get('/studioghibli', function(req, res) {
