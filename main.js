@@ -1,20 +1,82 @@
 'use strict';
 const express = require('express'),
-	app = express(),
+    app = express(),
+    passport = require("passport"),
+    TweetStrategy = require("passport-twitter").Strategy,
+    authorizationConfig = require("./modules/authorizationConfig"),
+    authorizationHandling = require("./modules/authorizationHandling"),
 	request = require('request-promise'),
     movieModule = require('./modules/MovieManager');
 
 app.set('view engine', 'pug');
 app.set('views', 'views');
 
+app.use(require("express-session")({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+let twitterKeys = {
+    consumerKey: authorizationConfig.TWITTER_CONSUMER_KEY,
+    consumerSecret: authorizationConfig.TWITTER_CONSUMER_SECRET,
+    callbackURL: "http://127.0.0.1:3000/auth/twitter/callback"
+};
+
+let twitterStrat = "twitter-auth";
+passport.use(twitterStrat, new TweetStrategy(twitterKeys,
+    (token, tokenSecret, profile, done) => {
+        done(null, {
+            profile: profile,
+            token: token,
+            tokenSecret: tokenSecret
+        });
+    }
+));
+
+passport.serializeUser(function (user, cb) {
+    cb(null, user);
+});
+
+passport.deserializeUser(function (obj, cb) {
+    cb(null, obj);
+});
+
+//app.get("/", (request, response) => {
+//    response.render("login");
+//});
+
+app.get("/main", (request, response) => {
+    let allMovies = null;
+    response.render("MoviePicker", {
+        allMovies: movieModule.getAllMovies(),
+        favoritedMovies: movieModule.getAllFavoritedMovies()});
+    
+});
+
 app.use(express.static('resources'));
 
-app.use(express.json()); // for parsing application/json
+app.use(express.json()); 
 app.use(
 	express.urlencoded({
 		extended: true
 	})
-); // for parsing application/x-www-form-urlencoded
+); 
+
+app.get("/auth/twitter", passport.authenticate(twitterStrat));
+
+app.get("/auth/twitter/callback", passport.authenticate(twitterStrat, {
+    successRedirect: "/main",
+    failureRedirect: "/"
+}));
+
+app.get("/auth/logout", (request, response) => {
+    request.logout();
+    response.redirect("/");
+});
 
 app.get('/', function(req, res) {   
     let allMovies = null;
@@ -38,12 +100,11 @@ app.get('/', function(req, res) {
             }
             ).then(function () {
                 movieModule.storeAllMovies(allMovies);
-                res.render('MoviePicker', {
-                    allMovies: movieModule.getAllMovies(),
-                    favoritedMovies: movieModule.getAllFavoritedMovies()	
+                res.render('login', {
+                    //allMovies: movieModule.getAllMovies(),
+                    //favoritedMovies: movieModule.getAllFavoritedMovies()	
                 })
-        });
-    
+        });    
 });
 
 app.get('/Movie', function(req, res) {
@@ -60,7 +121,6 @@ app.delete('/Movie', function(req, res) {
     console.log(req.query.movie)
     movieModule.removeFromFavorites(req.query.movie);
 });
-
 
 app.get('/', function(req, res) {
 	res.render('moviepicker');

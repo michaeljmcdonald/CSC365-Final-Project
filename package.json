@@ -18,6 +18,10 @@
   "homepage": "https://github.com/michaeljmcdonald/CSC365-Final-Project#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "oauth-1.0a": "^2.2.5",
+    "passport": "^0.4.0",
+    "passport-twitter": "^1.0.4",
     "pug": "^2.0.3",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
