@@ -5,8 +5,10 @@ const express = require('express'),
     TweetStrategy = require("passport-twitter").Strategy,
     authorizationConfig = require("./modules/authorizationConfig"),
     authorizationHandling = require("./modules/authorizationHandling"),
-	request = require('request-promise'),
+    request = require('request-promise'),
+    Twit = require('twit'),
     movieModule = require('./modules/MovieManager');
+
 
 app.set('view engine', 'pug');
 app.set('views', 'views');
@@ -19,6 +21,13 @@ app.use(require("express-session")({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+let twit = new Twit({
+    consumer_key: 'P0NZew8V0UP2MZfysbaC4d338',
+    consumer_secret: 'le5BhI5MIQMDfMrNC48sI0MD48bKkYE51vOvjQxAJr6ey9zPzB',
+    access_token: '1067567744277721089-z24FIuQPewVW6nvCCHxHXicDXWzZqu',
+    access_token_secret: '1PoimCJHwmtXT9gi9sAR3vfdZfQsEoVDOiRcM2dKQKazv'     
+});
 
 let twitterKeys = {
     consumerKey: authorizationConfig.TWITTER_CONSUMER_KEY,
@@ -108,7 +117,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/Movie', function(req, res) {
-    console.log(req.query.movie)
+    //console.log(req.query.movie)
     movieModule.addToFavorites(req.query.movie);
 });
 
@@ -124,6 +133,12 @@ app.delete('/Movie', function(req, res) {
 
 app.get('/', function(req, res) {
 	res.render('moviepicker');
+});
+
+app.post('/tweet', (request, response) => {
+    twit.post('statuses/update', { status: request.query.movies });
+    response.redirect('/');
+    console.log(request.query.movies);
 });
 
 app.get('/gallery', function(req, res) {

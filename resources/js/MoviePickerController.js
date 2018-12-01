@@ -15,22 +15,26 @@ let removeMovie = function(movie) {
 }
 
 let favTweet = function() {
-    let movies = [];
-    Http.open("GET", "/AllCurrentFavorites");    
+    let listOfMovies = [];
+    Http.open("GET", "/AllCurrentFavorites");
+    Http.onload = function(){
+        listOfMovies = Http.response;
+        let movies = '';
+        for (let i = 0; i < listOfMovies.length; i++){
+            movies = movies + listOfMovies[i] + ", "
+        }        
+        let body = {};
+        let query = "My favs are: " + listOfMovies;
+        Http.open("POST", "/tweet?movies=" + query);
+        //Http.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        Http.send();
+        console.log(listOfMovies);  
+    
+    }
+    console.log(listOfMovies)    
     Http.send();
-    Http.onreadystatechange = function(e){
-        console.log(Http.responseText)
-        movies = Http.responseText
-    }
-    console.log(movies)
-    let listOfMovies = ""
-    for (let i = 0; i < movies.length; i++){
-        listOfMovies.append[movies[i] + ", "]
-    }
-    let body = {}
-    body[status] = "My favs are: " + listOfMovies;
-    Http.open("POST", "https://api.twitter.com/1.1/statuses/update.json");
-    Http.send(body);    
+        
+    //console.log(typeof movies)    
 }
 
 document

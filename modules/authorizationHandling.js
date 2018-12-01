@@ -23,7 +23,6 @@ function getOauthHeader(consumerKey, consumerSecret, token, tokenSecret, query) 
     });
     return oauth.toHeader(oauthData);
 }
-
 module.exports = {
     getOauthHeader: getOauthHeader
 };
