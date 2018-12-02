@@ -23,7 +23,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 let twit = new Twit({
-         
+    consumer_key: 
+    consumer_secret: 
+    access_token: 
+    access_token_secret:      
 });
 
 let twitterKeys = {
@@ -119,8 +122,7 @@ app.get('/Movie', function(req, res) {
 });
 
 app.get('/AllCurrentFavorites', function(req, res) {
-    res.send(movieModule.getAllFavoritedMovies())
-    
+    res.send(movieModule.getAllFavoritedMovies())    
 });
 
 app.delete('/Movie', function(req, res) {

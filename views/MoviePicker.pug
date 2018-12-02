@@ -12,7 +12,7 @@ block main-content
         div 
         button(id='rmb', onclick='removeMovie("' + movie.title + '")' ) #{movie.title}
 
-    div(id='curfav') Current Favorites:
+    div(class='curfav') Current Favorites:
     each movie in favoritedMovies
         div= movie
     script(src='/js/MoviePickerController.js')
