@@ -2,18 +2,23 @@ extends nav
 
 block main-content
     h1.title(id='mTitle') Favorite Studio Ghibli Movies:
-    div Click To Add To Favorites
+    div(id="fav") Click To Add To Favorites:
     each movie in allMovies
         div 
-        button(onclick='addMovie("' + movie.title + '")' ) #{movie.title}
+        button(id='mb', onclick='addMovie("' + movie.title + '")' ) #{movie.title}
 
-    div Current Favorites:
+    div(id="remove") Click To Remove From Favorites:
+    each movie in allMovies
+        div 
+        button(id='rmb', onclick='removeMovie("' + movie.title + '")' ) #{movie.title}
+
+    div(class='curfav') Current Favorites:
     each movie in favoritedMovies
         div= movie
     script(src='/js/MoviePickerController.js')
 
-//- script.
-//-     'use strict';
+    button(id='fav', onclick='getFavorites()' ) Tweet
+
     
 
 
