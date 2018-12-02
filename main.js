@@ -24,10 +24,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const twit = new Twit({
-    "consumer_key": "nwJZIF6iimFMZfvxLoZpf2Tfz",
-    "consumer_secret": "VCepgDUR7ppd3mLga4846yrINZvmc0wWK618ZHrzA0tkpRllNn",
-    "access_token": "1067567744277721089-b3cOJ2GX2aFIp3xnCSb5jZVPqcTh8x",
-    "access_token_secret": "IdcjJCvGr3VQGvgAOIZXabb4MDq7hb14Qu9rY07MhPoVL"
+    "consumer_key": 
+    "consumer_secret": 
+    "access_token": 
+    "access_token_secret": 
 });
 
 const twitterKeys = {
